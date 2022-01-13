@@ -27,9 +27,11 @@ class MainActivity : AppCompatActivity() {
     private fun initPhotoGalleryButton() {
         photoGalleryButton.setOnClickListener {
             when {
+                // 특정 권한이 있는지 확인한다.
                 ContextCompat.checkSelfPermission(this, android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED -> {
                     // 포토 갤러리 실행
                 }
+                // 특정 권한에 대해 명시적으로 거부시 true, 처음 보거나 다시 묻지 않음 선택하고 권한을 허용한 경우 false
                 shouldShowRequestPermissionRationale(android.Manifest.permission.READ_EXTERNAL_STORAGE) -> {
                     initializeRequestPopUp()
 
